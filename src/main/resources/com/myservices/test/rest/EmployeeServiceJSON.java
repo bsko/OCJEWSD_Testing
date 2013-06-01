@@ -29,7 +29,6 @@ public class EmployeeServiceJSON implements IEmployeeService {
   @Path("/{name}")
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @Override
   public Employee getEmployee(@PathParam("name") String name) throws UnavailableException {
     try {
       return dao.getEmployee(name);
@@ -41,7 +40,6 @@ public class EmployeeServiceJSON implements IEmployeeService {
   @POST
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
-  @Override
   public Response addEmployee(Employee empl) throws UnavailableException {
     try {
       dao.addEmployee(empl);
