@@ -1,8 +1,6 @@
 package com.myservices.test.soap;
 
-import javax.jws.WebMethod;
-import javax.jws.WebService;
-
+import javax.jws.*;
 import com.myservices.test.dao.EmployeeDAO;
 import com.myservices.test.dao.exceptions.DAOException;
 import com.myservices.test.entities.Employee;
