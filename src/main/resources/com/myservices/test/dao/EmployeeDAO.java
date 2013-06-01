@@ -12,11 +12,11 @@ import com.myservices.test.entities.Employee;
 
 public class EmployeeDAO {
   
-  public static final String SOURCE_PATH = "D:/workspace/OCJEWSD_Testing/src/main/webapp/sources/";
+  public static final String SOURCE_PATH = "/sources/";
   
   public Employee getEmployee(String name) throws DAOException {
     try {
-      InputStream is = new FileInputStream(new File(SOURCE_PATH + name + ".properties"));
+      InputStream is = new FileInputStream(new File(SOURCE_PATH + name.toLowerCase() + ".properties"));
       Properties props = new Properties();
       props.load(is);
       Employee result = new Employee();
@@ -46,12 +46,13 @@ public class EmployeeDAO {
     props.setProperty("phoneNumber", empl.getPhoneNumber());
     props.setProperty("description", empl.getDescription());
     
-    File file = new File(SOURCE_PATH + empl.getName() + ".properties");
+    File file = new File(SOURCE_PATH + empl.getName().toLowerCase() + ".properties");
+    file.mkdirs();
     if(file.exists()) {
       file.delete();
     }
     try {
-      props.store(new FileOutputStream(SOURCE_PATH + empl.getName() + ".properties"), null);
+      props.store(new FileOutputStream(SOURCE_PATH + empl.getName().toLowerCase() + ".properties"), null);
     } catch(IOException e) {
       throw new DAOException("Couldn't save: " + e.getMessage());
     }
