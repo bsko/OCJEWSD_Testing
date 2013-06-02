@@ -41,4 +41,14 @@ public class EmployeeServiceJSON implements IEmployeeService {
       throw new UnavailableException(e.getMessage());
     }
   }
+  
+  @Path("uriinfo")
+  @GET
+  public String getUriInfo(@Context UriInfo info) {
+    StringBuilder bld = new StringBuilder();
+    bld.append(info.getAbsolutePath().toString())
+      .append("\n").append(info.getAbsolutePath().toString())
+      .append("\n").append(info.getBaseUri().toString());
+    return bld.toString();
+  }
 }
