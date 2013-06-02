@@ -1,13 +1,15 @@
 package com.myservices.test.soap;
 
 import javax.jws.*;
+import javax.jws.soap.SOAPBinding;
+
 import com.myservices.test.dao.EmployeeDAO;
 import com.myservices.test.dao.exceptions.DAOException;
 import com.myservices.test.entities.Employee;
 import com.myservices.test.entities.UnavailableException;
 
 @WebService
-public class EmployeeServiceSOAP {
+public class EmployeeServiceSOAP implements IEmployeeServiceSOAP {
 
   EmployeeDAO dao = EmployeeDAO.getInstance();
 
